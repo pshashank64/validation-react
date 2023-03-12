@@ -1,38 +1,20 @@
-import {useState} from 'react';
+
+import {Route, Routes} from 'react-router-dom';
+import Form from './Form';
+import Final from './Final';
 import './App.css';
 
 function App() {
-  const [name, setName] = useState('');
-  const [dob, setDob] = useState('');
-  const [email, setEmail] = useState('');
-  const [mobile, setMobile] = useState('');
 
-  const handleformSubmit = (event) => {
-    event.preventDefault();
-    const dataSubmit = {name, dob, email, mobile};
-    fetch('http://localhost:8000/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(dataSubmit)
-    }).then(res => res.json())
-    .then(res => {
-      console.log(res);
-    })
-  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <h1> Hello, please fill the form to proceed!! </h1>
-        <form action='' method='POST' className='formData' onSubmit={handleformSubmit}>
-          <input type="text" placeholder='Enter your name' name='name' value={name} onChange={(event) => setName(event.target.value)}></input>
-          <input type="date" name="dob" value={dob} onChange={(event) => setDob(event.target.value)}></input>
-          <input type="email" placeholder='Enter your Email' name="email" value={email} onChange={(event) => setEmail(event.target.value)}></input>
-          <input type="number" placeholder='Enter your Number' name="mobile" value={mobile} onChange={(event) => setMobile(event.target.value)}></input>
-          <input type="submit"></input>
-        </form>
-        </header>
+
+      <Routes>
+        <Route path="/" element={<Form />}/>
+        <Route path="/final" element={<Final />}/>
+      </Routes>
+
     </div>
   );
 }
