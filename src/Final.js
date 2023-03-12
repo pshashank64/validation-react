@@ -22,6 +22,7 @@ function Final() {
  <div className="datas"> 
     
     <table className='table'>
+    <h1>This is the latest data!</h1>
         <tr>
             <td>{data && data.map(d=><p>{d.name}</p>)}</td>
             <td>{data && data.map(d=><p>{d.dob}</p>)}</td>
@@ -34,22 +35,3 @@ function Final() {
 } 
  
 export default Final; 
-
-
-// const Final = () => {
-
-//     fetch('http://localhost:8000/data')
-//     .then(data => {
-//      data.json();
-//     })
-//     .then(post => {
-//     console.log(post.name);
-//     });
-//     return (
-//         <div>
-//             <h1>This is final page</h1>
-//         </div>
-//     )
-// }
-
-// export default Final;
