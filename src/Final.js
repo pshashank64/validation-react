@@ -11,7 +11,7 @@ function Final() {
  setData(response) 
  } 
  }; 
- request.open('GET', 'http://localhost:8000/data', true); 
+ request.open('GET', 'http://localhost:8080/data', true); 
  request.send(); 
  },[]) 
  
